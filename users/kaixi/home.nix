@@ -27,7 +27,25 @@
     nuclear
   ];
 
-  programs.zsh.enable = true;
+  programs.zsh = {
+    enable = true;
+    defaultKeymap = "viins";
+    dotDir = ".config/zsh";
+    enableCompletion = true;
+    enableSyntaxHighlighting = true;
+    history.path = ".cache/zsh/history";
+    initExtra = ''
+      autoload -U colors && colors
+      PS1="%B%{$fg[magenta]%}%1~ ⊨%{$reset_color%}%b "
+    '';
+  };
+
+  # check config further
+  programs.direnv = {
+    enable = true;
+    enableZshIntegration = true;
+    nix-direnv.enable = true;
+  };
 
   programs.vscode = {
     enable = true;
