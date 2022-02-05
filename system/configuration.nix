@@ -77,6 +77,13 @@
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
+
+  nix = {
+    extraOptions = "experimental-features = nix-command flakes";
+    package = pkgs.nixFlakes;
+  };
+
+  nixpkgs.config.allowUnfree = true;
   environment.systemPackages = with pkgs; [
     neovim
     wget git
