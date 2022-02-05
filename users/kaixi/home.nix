@@ -28,4 +28,26 @@
   ];
 
   programs.zsh.enable = true;
+
+  programs.vscode = {
+    enable = true;
+    package = pkgs.vscodium;
+    extensions = (with pkgs.vscode-extensions; [
+      dracula-theme.theme-dracula
+      vscodevim.vim
+      yzhang.markdown-all-in-one
+      bbenoist.nix
+    ]) ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [{
+      name = "vscode-direnv";
+      publisher = "cab404";
+      version = "1.0.0";
+      sha256 = "+nLH+T9v6TQCqKZw6HPN/ZevQ65FVm2SAo2V9RecM3Y=";
+    }] ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [{
+      name = "nix-env-selector";
+      publisher = "arrterian";
+      version = "1.0.7";
+      sha256 = "DnaIXJ27bcpOrIp1hm7DcrlIzGSjo4RTJ9fD72ukKlc=";
+    }];
+    
+  };
 }

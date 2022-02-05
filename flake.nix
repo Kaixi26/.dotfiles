@@ -40,6 +40,7 @@
         inherit system;
 
 	modules = [
+	  ./configuration.nix
 	  ./hosts/jupiter.nix
 	];
       };

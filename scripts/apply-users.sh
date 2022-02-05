@@ -1,5 +1,5 @@
 #!/bin/sh
-set -x
+set -xe
 pushd ~/.dotfiles
 nix build .#homeManagerConfigurations.kaixi.activationPackage
 ./result/activate
