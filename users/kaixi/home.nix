@@ -24,10 +24,10 @@
   home.packages = with pkgs; [
     alacritty
     discord
-    nuclear
-    jetbrains.idea-ultimate
+    #nuclear
+    #jetbrains.idea-ultimate
     alloy6
-    texlive.combined.scheme-full
+    #texlive.combined.scheme-full
   ];
 
   services.polybar = {
@@ -92,6 +92,8 @@
       vscodevim.vim
       yzhang.markdown-all-in-one
       bbenoist.nix
+      justusadam.language-haskell
+      haskell.haskell
     ]) ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [{
       name = "vscode-direnv";
       publisher = "cab404";
@@ -102,7 +104,13 @@
       publisher = "arrterian";
       version = "1.0.7";
       sha256 = "DnaIXJ27bcpOrIp1hm7DcrlIzGSjo4RTJ9fD72ukKlc=";
+    }] ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [{
+      name = "haskell-linter";
+      publisher = "hoovercj";
+      version = "0.0.6";
+      sha256 = "MjgqR547GC0tMnBJDMsiB60hJE9iqhKhzP6GLhcLZzk=";
     }];
+
     
   };
 }
