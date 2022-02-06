@@ -19,6 +19,10 @@
     enable = true;
     displayManager.lightdm.enable = true;
     desktopManager.plasma5.enable = true;
+    windowManager.xmonad = {
+      enable = true;
+      enableContribAndExtras = true;
+    };
     layout = "pt";
     xkbOptions = "ctrl:swapcaps";
     libinput.enable = true;

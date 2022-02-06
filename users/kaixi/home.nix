@@ -25,7 +25,38 @@
     alacritty
     discord
     nuclear
+    jetbrains.idea-ultimate
+    alloy6
+    texlive.combined.scheme-full
   ];
+
+  services.polybar = {
+    enable = true;
+    config = {
+      "bar/top" = {
+        monitor = "\${env:MONITOR:HDMI-1}";
+        width = "100%";
+        height = "3%";
+        radius = 0;
+        modules-center = "date";
+      };
+      "module/date" = {
+        type = "internal/date";
+        internal = "60";
+        date = "%d.%m.%y";
+        time = "%H:%M";
+        label = "%time% %date%";
+      };
+    };
+    script = ''
+      
+    '';
+  };
+
+  programs.exa = {
+    enable = true;
+    enableAliases = true;
+  };
 
   programs.zsh = {
     enable = true;
@@ -37,6 +68,12 @@
     initExtra = ''
       autoload -U colors && colors
       PS1="%B%{$fg[magenta]%}%1~ ⊨%{$reset_color%}%b "
+      PATH=$PATH:~/.dotfiles/scripts/
+    '';
+    shellAliases = {
+      v = "nvim";
+    };
+    profileExtra = ''
     '';
   };
 
