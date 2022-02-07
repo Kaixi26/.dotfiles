@@ -21,11 +21,28 @@
     desktopManager.plasma5.enable = true;
     windowManager.xmonad = {
       enable = true;
-      enableContribAndExtras = true;
+      extraPackages = haskellPackages: [
+        haskellPackages.xmonad
+        haskellPackages.xmonad-contrib
+        haskellPackages.xmonad-extras
+      ];
     };
     layout = "pt";
     xkbOptions = "ctrl:swapcaps";
     libinput.enable = true;
+  };
+
+    environment.sessionVariables = rec {
+      XDG_CACHE_HOME    = "\${HOME}/.cache";
+      XDG_CONFIG_HOME   = "\${HOME}/.config";
+      XDG_BIN_HOME      = "\${HOME}/.local/bin";
+      XDG_DATA_HOME     = "\${HOME}/.local/share";
+      XMONAD_CONFIG_DIR = "\${HOME}/.dotfiles/xmonad-config";
+      TERM              = "alacritty";
+      BROWSER           = "firefox";
+    PATH = [ 
+      "\${XDG_BIN_HOME}"
+    ];
   };
 
   sound.enable = true;

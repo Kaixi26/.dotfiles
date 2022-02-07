@@ -38,6 +38,7 @@
         width = "100%";
         height = "3%";
         radius = 0;
+        modules-left = "xworkspaces";
         modules-center = "date";
       };
       "module/date" = {
@@ -47,10 +48,17 @@
         time = "%H:%M";
         label = "%time% %date%";
       };
+      "module/xworkspaces" = {
+        type = "internal/xworkspaces";
+      };
     };
     script = ''
       
     '';
+  };
+
+  programs.rofi = {
+    enable = true;
   };
 
   programs.exa = {
