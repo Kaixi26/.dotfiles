@@ -1,7 +1,0 @@
-#!/bin/sh
-
-exec cabal install \
-  --enable-executable-stripping \
-  --enable-optimization=2 \
-  --overwrite-policy=always \
-  --installdir="$(dirname "$1")"

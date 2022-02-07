@@ -1,10 +1,10 @@
-import XMonad (ChangeLayout (NextLayout), Default (def), Full (Full), IncMasterN (IncMasterN), Resize (Expand, Shrink), Tall (Tall), XConfig (borderWidth, focusFollowsMouse, focusedBorderColor, handleEventHook, keys, manageHook, modMask, normalBorderColor, workspaces), composeAll, kill, mod4Mask, refresh, sendMessage, spawn, windows, withFocused, xmonad, (-->), (|||))
+import XMonad (ChangeLayout (NextLayout), Default (def), Full (Full), IncMasterN (IncMasterN), Resize (Expand, Shrink), Tall (Tall), XConfig (borderWidth, focusFollowsMouse, focusedBorderColor, handleEventHook, keys, layoutHook, manageHook, modMask, normalBorderColor, workspaces), composeAll, kill, mod4Mask, refresh, sendMessage, spawn, windows, withFocused, xmonad, (-->), (|||))
 import XMonad.Hooks.EwmhDesktops (ewmh, fullscreenEventHook)
 import XMonad.Hooks.ManageDocks (avoidStruts, docksEventHook, manageDocks)
 import XMonad.Hooks.ManageHelpers
 import XMonad.Layout.Groups.Helpers (focusDown)
 import XMonad.Layout.NoBorders (Ambiguity (Never), noBorders, smartBorders)
-import XMonad.Layout.Spacing (Border (Border), spacingRaw)
+import XMonad.Layout.Spacing (Border (Border), spacing, spacingRaw)
 import XMonad.Layout.ThreeColumns ()
 import qualified XMonad.StackSet as W
 import XMonad.Util.EZConfig (mkKeymap)
@@ -16,12 +16,27 @@ terminal = "/usr/bin/env $TERM"
 myWorkspaces :: [String]
 myWorkspaces = map show [1 .. 10]
 
+manage =
+  composeAll
+    [ manageDocks,
+      isFullscreen --> doFullFloat,
+      manageHook def
+    ]
+
+handleEvent =
+  mconcat
+    [ docksEventHook,
+      fullscreenEventHook,
+      handleEventHook def
+    ]
+
 layout =
   let tiled =
-        spacingRaw True border True border True $
-          smartBorders $
-            avoidStruts $
+        smartBorders $
+          avoidStruts $
+            spacingRaw True border True border True $
               Tall nmaster delta ratio
+      full = noBorders Full
 
       border = Border 4 4 4 4
       nmaster = 1
@@ -73,18 +88,9 @@ main = do
           workspaces = myWorkspaces,
           borderWidth = 1,
           focusedBorderColor = "#5e81ac",
-          normalBorderColor = "#e5e9f9",
+          normalBorderColor = "#000000",
           focusFollowsMouse = False,
-          manageHook =
-            composeAll
-              [ manageDocks,
-                isFullscreen --> doFullFloat,
-                manageHook def
-              ],
-          handleEventHook =
-            mconcat
-              [ docksEventHook,
-                fullscreenEventHook,
-                handleEventHook def
-              ]
+          layoutHook = layout,
+          manageHook = manage,
+          handleEventHook = handleEvent
         }
