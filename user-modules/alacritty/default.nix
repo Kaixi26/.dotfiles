@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ ... }:
 let
   window = {
       padding.x = 2;
