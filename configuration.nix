@@ -15,6 +15,8 @@
     keyMap = "pt-latin1";
   };
 
+  fonts.fonts = with pkgs; [ lmodern lmmath ];
+
   services.xserver = {
     enable = true;
     displayManager.lightdm.enable = true;

@@ -118,6 +118,7 @@
     noDNDShadow = true;
     noDockShadow = true;
     vSync = true;
+    loadModule = false;
   };
 
   programs.rofi = {

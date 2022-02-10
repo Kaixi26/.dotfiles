@@ -80,6 +80,7 @@ keyMap =
 
 main :: IO ()
 main = do
+  spawn "polybar top"
   xmonad $
     ewmh $ -- TODO: ewmhFullscreen when contrib 0.17.0 is properly supported
       def
