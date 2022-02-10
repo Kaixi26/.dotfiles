@@ -29,7 +29,7 @@
 	      stateVersion = "22.05";
 	      configuration = {
 	        imports = [
-	          ./user-modules/kaixi.nix
+	          ./user-modules
 	        ];
 	      };
       };

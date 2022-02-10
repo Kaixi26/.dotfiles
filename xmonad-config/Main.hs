@@ -80,7 +80,7 @@ keyMap =
 
 main :: IO ()
 main = do
-  spawn "polybar top"
+  spawn "systemctl --user start polybar.service"
   xmonad $
     ewmh $ -- TODO: ewmhFullscreen when contrib 0.17.0 is properly supported
       def
