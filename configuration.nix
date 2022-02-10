@@ -15,7 +15,10 @@
     keyMap = "pt-latin1";
   };
 
-  fonts.fonts = with pkgs; [ lmodern lmmath ];
+  fonts.fonts = with pkgs; [
+    lmodern
+    lmmath
+  ];
 
   services.xserver = {
     enable = true;
