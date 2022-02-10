@@ -14,6 +14,7 @@
     ./zsh
     ./vscode
     ./rofi
+    ./nvim
   ];
   
   home.packages = with pkgs; [
