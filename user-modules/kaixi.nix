@@ -21,8 +21,11 @@
 
   nixpkgs.config.allowUnfree = true;
 
+  imports = [ 
+    ./alacritty 
+  ];
+  
   home.packages = with pkgs; [
-    alacritty
     discord
     #nuclear
     #jetbrains.idea-ultimate
@@ -118,7 +121,6 @@
     noDNDShadow = true;
     noDockShadow = true;
     vSync = true;
-    loadModule = false;
   };
 
   programs.rofi = {

@@ -24,14 +24,14 @@
     homeManagerConfigurations = {
       kaixi = home-manager.lib.homeManagerConfiguration {
         inherit system pkgs;
-	username = "kaixi";
-	homeDirectory = "/home/kaixi";
-	stateVersion = "22.05";
-	configuration = {
-	  imports = [
-	    ./users/kaixi/home.nix
-	  ];
-	};
+	      username = "kaixi";
+	      homeDirectory = "/home/kaixi";
+	      stateVersion = "22.05";
+	      configuration = {
+	        imports = [
+	          ./user-modules/kaixi.nix
+	        ];
+	      };
       };
     };
 
