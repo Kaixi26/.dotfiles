@@ -44,6 +44,14 @@
           { networking.hostName = "jupiter"; }
 	      ];
       };
+      uranus = lib.nixosSystem {
+        inherit system;
+	      modules = [
+	        ./configuration.nix
+          ./system-modules/hardware
+          { networking.hostName = "uranus"; }
+	      ];
+      };
     };
   };
 }
