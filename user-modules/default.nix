@@ -15,6 +15,7 @@
     ./vscode
     ./rofi
     ./nvim
+    ./dunst
   ];
   
   home.packages = with pkgs; [
@@ -27,6 +28,8 @@
     comma
   ];
 
+
+  services.network-manager-applet.enable = true;
 
   programs.exa = {
     enable = true;

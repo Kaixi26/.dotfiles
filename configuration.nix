@@ -16,6 +16,7 @@
   fonts.fonts = with pkgs; [
     lmodern
     lmmath
+    (nerdfonts.override { fonts = [ "FiraMono" "Hack" ]; })
   ];
 
   services.xserver = {
@@ -30,6 +31,7 @@
         haskellPackages.xmonad-extras
       ];
     };
+    displayManager.defaultSession = "none+xmonad";
     layout = "pt";
     xkbOptions = "ctrl:swapcaps";
     libinput.enable = true;
@@ -61,6 +63,7 @@
 
   nixpkgs.config.allowUnfree = true;
   programs.zsh.enable = true;
+  programs.light.enable = true;
   environment.systemPackages = with pkgs; [
     neovim
     wget git
@@ -73,7 +76,7 @@
     defaultUserShell = pkgs.zsh;
     users.kaixi = {
       isNormalUser = true;
-      extraGroups = [ "wheel" "networkmanager" ]; # Enable ‘sudo’ for the user.
+      extraGroups = [ "wheel" "networkmanager" "video" ];
     };
   };
 

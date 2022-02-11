@@ -32,11 +32,12 @@ handleEvent =
 
 layout =
   let tiled =
+        avoidStruts $
+          spacingRaw True border True border True $
+            Tall nmaster delta ratio
+      full =
         smartBorders $
-          avoidStruts $
-            spacingRaw True border True border True $
-              Tall nmaster delta ratio
-      full = noBorders Full
+          noBorders Full
 
       border = Border 4 4 4 4
       nmaster = 1
@@ -64,6 +65,8 @@ keyMap =
         [ ("M-<Return>", spawn terminal),
           ("<Print>", unGrab *> spawn "flameshot"),
           ("M-d", spawn "rofi -show drun"),
+          ("<XF86MonBrightnessUp>", spawn "light -A 10"),
+          ("<XF86MonBrightnessDown>", spawn "light -U 10"),
           ("M-S-q", kill)
         ]
       workspaceBinds =

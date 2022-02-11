@@ -5,7 +5,6 @@
   boot.loader.efi.canTouchEfiVariables = true;
   networking.useDHCP = false;
   networking.interfaces.enp2s0f1.useDHCP = true;
-  networking.interfaces.wlp0s20f0u4.useDHCP = true;
   networking.interfaces.wlp3s0.useDHCP = true;
 
   imports =

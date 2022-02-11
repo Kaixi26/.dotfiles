@@ -66,6 +66,13 @@ let
     { key = "J"; action = "ScrollLineDown"; }
   ];
 
+  default_font = {
+    normal      = { family = "Hack Nerd Font"; style = "Regular"; };
+    bold        = { family = "Hack Nerd Font"; style = "Bold"; };
+    italic      = { family = "Hack Nerd Font"; style = "Italic"; };
+    bold_italic = { family = "Hack Nerd Font"; style = "Bold Italic"; };
+    size = 9;
+  };
 in
 {
 
@@ -79,6 +86,8 @@ in
       colors = colors-nord;
 
       cursor.style = "Block";
+
+      font = default_font;
 
       inherit key_bindings;
     };
