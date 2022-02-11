@@ -14,7 +14,7 @@
         disabled = "#707880";
       };
       "bar/top" = {
-        monitor = "\${env:MONITOR:HDMI-1}";
+        monitor = "\${env:MONITOR:eDP-1}";
         width = "100%";
         height = "2.5%";
         line-size = "3";

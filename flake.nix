@@ -40,15 +40,17 @@
         inherit system;
 	      modules = [
 	        ./configuration.nix
-          ./system-modules/hardware
+          ./system-modules/hardware/jupiter.nix
           { networking.hostName = "jupiter"; }
 	      ];
       };
       uranus = lib.nixosSystem {
         inherit system;
 	      modules = [
-	        ./configuration.nix
-          ./system-modules/hardware
+          #./test/configuration.nix
+          #./test/hardware-configuration.nix
+          ./configuration.nix
+          ./system-modules/hardware/kaixi.nix
           { networking.hostName = "uranus"; }
 	      ];
       };
