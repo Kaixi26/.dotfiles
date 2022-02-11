@@ -38,11 +38,11 @@
     nixosConfigurations = {
       jupiter = lib.nixosSystem {
         inherit system;
-
-	modules = [
-	  ./configuration.nix
-	  ./hosts/jupiter.nix
-	];
+	      modules = [
+	        ./configuration.nix
+          ./system-modules/hardware
+          { networking.hostName = "jupiter"; }
+	      ];
       };
     };
   };
