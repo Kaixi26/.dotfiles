@@ -23,7 +23,7 @@
         modules-center = "date";
         modules-right = "pulseaudio cpu battery";
         separator = " | ";
-        font-0 = "hack:size=8";
+        font-0 = "hack nerd font:size=10";
         tray-position = "right";
         padding-right = "5";
       };
@@ -51,7 +51,7 @@
       };
       "module/pulseaudio" = {
         type = "internal/pulseaudio";
-        format-volume-prefix = "VOL ";
+        format-volume-prefix = " ";
         format-volume-prefix-foreground = "\${colors.primary}";
         format-volume = "<label-volume>";
         label-volume = "%percentage%%";
@@ -61,7 +61,7 @@
       "module/cpu" = {
         type = "internal/cpu";
         interval = "2";
-        format-prefix = "CPU ";
+        format-prefix = " ";
         format-prefix-foreground = "\${colors.primary}";
         label = "%percentage:2%%";
       };

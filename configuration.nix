@@ -1,6 +1,10 @@
 { config, lib, pkgs, modulesPath, ... }:
-
 {
+
+  imports = [
+    ./system-modules/sound
+    ./system-modules/bluetooth
+  ];
 
   time.timeZone = "Europe/Portugal";
 
@@ -51,7 +55,8 @@
   };
 
   sound.enable = true;
-  hardware.pulseaudio.enable = true;
+  security.rtkit.enable = true;
+  #hardware.pulseaudio.enable = true;
 
   services.openssh.enable = true;
   # Open ports in the firewall.

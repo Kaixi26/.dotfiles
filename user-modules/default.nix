@@ -20,10 +20,12 @@
   
   home.packages = with pkgs; [
     discord
-    #nuclear
+    nuclear
     #jetbrains.idea-ultimate
     alloy6
     #texlive.combined.scheme-full
+    zoom
+    spotify
     killall
     comma
   ];
