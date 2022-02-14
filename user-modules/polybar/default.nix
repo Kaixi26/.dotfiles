@@ -61,12 +61,13 @@
       "module/cpu" = {
         type = "internal/cpu";
         interval = "2";
-        format-prefix = " ";
+        format-prefix = "CPU ";
         format-prefix-foreground = "\${colors.primary}";
         label = "%percentage:2%%";
       };
       "module/battery" = {
         type = "internal/battery";
+        format-prefix = " ";
         full-at = "99";
         battery = "BAT0";
         adapter = "ADP1";

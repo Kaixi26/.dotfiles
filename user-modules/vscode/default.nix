@@ -30,6 +30,7 @@ in
       bbenoist.nix
       justusadam.language-haskell
       haskell.haskell
+      golang.go
     ]) ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
       direnv
       nix-env-selector

@@ -21,15 +21,20 @@
   home.packages = with pkgs; [
     discord
     nuclear
-    #jetbrains.idea-ultimate
+    jetbrains.idea-ultimate
     alloy6
     #texlive.combined.scheme-full
-    zoom
+    zoom-us
     spotify
     killall
     comma
+    mpv
+    lxappearance
+    i3lock
+    ripgrep
+    transmission-gtk
+    arandr
   ];
-
 
   services.network-manager-applet.enable = true;
 

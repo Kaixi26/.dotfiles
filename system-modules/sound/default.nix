@@ -3,7 +3,10 @@
 
   environment.systemPackages = with pkgs; [
       pavucontrol
+      pulsemixer
   ];
+
+  sound.enable = true;
 
   services.pipewire = {
     enable = true;

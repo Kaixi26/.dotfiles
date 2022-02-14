@@ -6,7 +6,7 @@
     ./system-modules/bluetooth
   ];
 
-  time.timeZone = "Europe/Portugal";
+  time.timeZone = "Europe/Lisbon";
 
   networking.networkmanager.enable = true;
   networking.networkmanager.insertNameservers = [ "1.1.1.1" ];
@@ -49,6 +49,7 @@
       XMONAD_CONFIG_DIR = "\${HOME}/.dotfiles/xmonad-config";
       TERM              = "alacritty";
       BROWSER           = "firefox";
+      _JAVA_AWT_WM_NONREPARENTING = "1";
     PATH = [ 
       "\${XDG_BIN_HOME}"
     ];
@@ -69,19 +70,21 @@
   nixpkgs.config.allowUnfree = true;
   programs.zsh.enable = true;
   programs.light.enable = true;
+  services.cpupower-gui.enable = true;
   environment.systemPackages = with pkgs; [
     neovim
     wget git
     firefox
     networkmanagerapplet
     mypaint
+    btop
   ];
 
   users = {
     defaultUserShell = pkgs.zsh;
     users.kaixi = {
       isNormalUser = true;
-      extraGroups = [ "wheel" "networkmanager" "video" ];
+      extraGroups = [ "wheel" "networkmanager" "video" "sound" ];
     };
   };
 
