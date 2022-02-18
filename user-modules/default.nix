@@ -34,6 +34,7 @@
     ripgrep
     transmission-gtk
     arandr
+    write_stylus
   ];
 
   services.network-manager-applet.enable = true;

@@ -30,9 +30,9 @@
     windowManager.xmonad = {
       enable = true;
       extraPackages = haskellPackages: [
-        haskellPackages.xmonad
-        haskellPackages.xmonad-contrib
-        haskellPackages.xmonad-extras
+        haskellPackages.xmonad_0_17_0
+        haskellPackages.xmonad-contrib_0_17_0
+        haskellPackages.xmonad-extras_0_17_0
       ];
     };
     displayManager.defaultSession = "none+xmonad";
@@ -78,6 +78,7 @@
     networkmanagerapplet
     mypaint
     btop
+    man-pages man-pages-posix
   ];
 
   users = {

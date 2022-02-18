@@ -1,3 +1,4 @@
+{-# OPTIONS_GHC -Wno-deprecations #-}
 import XMonad (ChangeLayout (NextLayout), Default (def), Full (Full), IncMasterN (IncMasterN), Resize (Expand, Shrink), Tall (Tall), XConfig (borderWidth, focusFollowsMouse, focusedBorderColor, handleEventHook, keys, layoutHook, manageHook, modMask, normalBorderColor, workspaces), composeAll, kill, mod4Mask, refresh, sendMessage, spawn, windows, withFocused, xmonad, (-->), (|||))
 import XMonad.Hooks.EwmhDesktops (ewmh, fullscreenEventHook)
 import XMonad.Hooks.ManageDocks (avoidStruts, docksEventHook, manageDocks)
@@ -66,7 +67,7 @@ keyMap =
         [ ("M-<Return>", spawn terminal),
           ("<Print>", unGrab *> spawn "flameshot"),
           ("M-d", spawn "rofi -show drun"),
-          ("M-l", spawn "i3lock -c 000000"),
+          ("M-p", spawn "i3lock -c 000000"),
           ("<XF86MonBrightnessUp>", spawn "light -A 5"),
           ("<XF86MonBrightnessDown>", spawn "light -U 5"),
           ("<XF86AudioRaiseVolume>", spawn "pulsemixer --max-volume 100 --change-volume +5"),
