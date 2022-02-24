@@ -48,23 +48,30 @@
       XDG_DATA_HOME     = "\${HOME}/.local/share";
       XMONAD_CONFIG_DIR = "\${HOME}/.dotfiles/xmonad-config";
       TERM              = "alacritty";
-      BROWSER           = "firefox";
+      BROWSER           = "${pkgs.firefox}/bin/firefox";
+      DEFAULT_BROWSER   = "${pkgs.firefox}/bin/firefox";
       _JAVA_AWT_WM_NONREPARENTING = "1";
     PATH = [ 
       "\${XDG_BIN_HOME}"
     ];
   };
 
-  sound.enable = true;
+  xdg.mime.defaultApplications = {
+    "text/html" = "firefox.desktop";
+    "x-scheme-handler/http" = "firefox.desktop";
+    "x-scheme-handler/https" = "firefox.desktop";
+    "x-scheme-handler/about" = "firefox.desktop";
+    "x-scheme-handler/unknown" = "firefox.desktop";
+  };
+
   security.rtkit.enable = true;
-  #hardware.pulseaudio.enable = true;
 
   services.openssh.enable = true;
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
   # networking.firewall.allowedUDPPorts = [ ... ];
   # Or disable the firewall altogether.
-  # networking.firewall.enable = false;
+  networking.firewall.enable = false;
 
 
   nixpkgs.config.allowUnfree = true;
@@ -79,13 +86,14 @@
     mypaint
     btop
     man-pages man-pages-posix
+    zip unzip
   ];
 
   users = {
     defaultUserShell = pkgs.zsh;
     users.kaixi = {
       isNormalUser = true;
-      extraGroups = [ "wheel" "networkmanager" "video" "sound" ];
+      extraGroups = [ "wheel" "networkmanager" "video" "sound" "docker" ];
     };
   };
 
@@ -96,6 +104,8 @@
     enable = true;
     enableSSHSupport = true;
   };
+
+  virtualisation.docker.enable = true;
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions

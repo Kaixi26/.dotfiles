@@ -44,6 +44,7 @@ in
 
     extraPackages = with pkgs; [
       ripgrep
+      xclip # allow '"+y' to copy to clipboard
     ];
 
     plugins = with pkgs.vimPlugins; [

@@ -34,7 +34,11 @@
     ripgrep
     transmission-gtk
     arandr
-    write_stylus
+    xournal
+    flameshot
+    thunderbird-bin birdtray
+    blender
+    mattermost-desktop
   ];
 
   services.network-manager-applet.enable = true;

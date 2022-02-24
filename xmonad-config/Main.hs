@@ -1,16 +1,18 @@
 {-# OPTIONS_GHC -Wno-deprecations #-}
+
 import XMonad (ChangeLayout (NextLayout), Default (def), Full (Full), IncMasterN (IncMasterN), Resize (Expand, Shrink), Tall (Tall), XConfig (borderWidth, focusFollowsMouse, focusedBorderColor, handleEventHook, keys, layoutHook, manageHook, modMask, normalBorderColor, workspaces), composeAll, kill, mod4Mask, refresh, sendMessage, spawn, windows, withFocused, xmonad, (-->), (|||))
+import qualified XMonad.Actions.CopyWindow as CW
 import XMonad.Hooks.EwmhDesktops (ewmh, fullscreenEventHook)
 import XMonad.Hooks.ManageDocks (avoidStruts, docksEventHook, manageDocks)
-import XMonad.Hooks.ManageHelpers ( doFullFloat, isFullscreen )
+import XMonad.Hooks.ManageHelpers (doFullFloat, isFullscreen)
 import XMonad.Layout.Groups.Helpers (focusDown)
 import XMonad.Layout.NoBorders (Ambiguity (Never), noBorders, smartBorders)
 import XMonad.Layout.Spacing (Border (Border), spacing, spacingRaw)
 import XMonad.Layout.ThreeColumns ()
 import qualified XMonad.StackSet as W
 import XMonad.Util.EZConfig (mkKeymap)
-import XMonad.Util.Ungrab (unGrab)
 import XMonad.Util.Replace (replace)
+import XMonad.Util.Ungrab (unGrab)
 
 terminal :: String
 terminal = "/usr/bin/env $TERM"
@@ -65,7 +67,7 @@ keyMap =
         ]
       appBinds =
         [ ("M-<Return>", spawn terminal),
-          ("<Print>", unGrab *> spawn "flameshot"),
+          ("<Print>", unGrab *> spawn "flameshot gui"),
           ("M-d", spawn "rofi -show drun"),
           ("M-p", spawn "i3lock -c 000000"),
           ("<XF86MonBrightnessUp>", spawn "light -A 5"),
@@ -73,12 +75,12 @@ keyMap =
           ("<XF86AudioRaiseVolume>", spawn "pulsemixer --max-volume 100 --change-volume +5"),
           ("<XF86AudioLowerVolume>", spawn "pulsemixer --max-volume 100 --change-volume -5"),
           ("<XF86AudioMute>", spawn "pulsemixer --max-volume 100 --toggle-mute"),
-          ("M-S-q", kill)
+          ("M-S-q", CW.kill1)
         ]
       workspaceBinds =
         [ ("M-" ++ mod ++ [key], windows $ fn wspc)
           | (wspc, key) <- zip myWorkspaces $ ['1' .. '9'] ++ ['0'],
-            (fn, mod) <- [(W.greedyView, ""), (W.shift, "S-")]
+            (fn, mod) <- [(W.greedyView, ""), (W.shift, "S-"), (CW.copy, "c ")]
         ]
    in concat
         [ appBinds,

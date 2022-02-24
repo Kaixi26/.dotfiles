@@ -31,10 +31,10 @@ in
       justusadam.language-haskell
       haskell.haskell
       golang.go
+      ms-python.python
     ]) ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
       direnv
       nix-env-selector
-      haskell-linter
     ];
   };
 }
