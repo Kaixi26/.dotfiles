@@ -22,6 +22,17 @@
 
   in {
     homeManagerConfigurations = {
+      work = home-manager.lib.homeManagerConfiguration {
+        inherit system pkgs;
+	      username = "work";
+	      homeDirectory = "/home/work";
+	      stateVersion = "22.05";
+	      configuration = {
+	        imports = [
+	          ./user-modules
+	        ];
+	      };
+      };
       kaixi = home-manager.lib.homeManagerConfiguration {
         inherit system pkgs;
 	      username = "kaixi";

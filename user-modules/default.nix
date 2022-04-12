@@ -39,6 +39,8 @@
     thunderbird-bin birdtray
     blender
     mattermost-desktop
+    ark
+    zathura
   ];
 
   services.network-manager-applet.enable = true;

@@ -30,9 +30,9 @@
     windowManager.xmonad = {
       enable = true;
       extraPackages = haskellPackages: [
-        haskellPackages.xmonad_0_17_0
-        haskellPackages.xmonad-contrib_0_17_0
-        haskellPackages.xmonad-extras_0_17_0
+        haskellPackages.xmonad
+        haskellPackages.xmonad-contrib
+        haskellPackages.xmonad-extras
       ];
     };
     displayManager.defaultSession = "none+xmonad";
@@ -62,6 +62,7 @@
     "x-scheme-handler/https" = "firefox.desktop";
     "x-scheme-handler/about" = "firefox.desktop";
     "x-scheme-handler/unknown" = "firefox.desktop";
+    "inode/directory" = "dolphin.desktop";
   };
 
   security.rtkit.enable = true;
@@ -86,12 +87,18 @@
     mypaint
     btop
     man-pages man-pages-posix
-    zip unzip
+    zip unzip acpi
   ];
+  
+  services.flatpak.enable = true;
 
   users = {
     defaultUserShell = pkgs.zsh;
     users.kaixi = {
+      isNormalUser = true;
+      extraGroups = [ "wheel" "networkmanager" "video" "sound" "docker" ];
+    };
+    users.work = {
       isNormalUser = true;
       extraGroups = [ "wheel" "networkmanager" "video" "sound" "docker" ];
     };
