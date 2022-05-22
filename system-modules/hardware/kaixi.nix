@@ -13,9 +13,17 @@
       libvdpau-va-gl
     ];
   };
+  services.tlp = {
+    enable = true;
+    settings = {
+      START_CHARGE_THRESH_BAT0 = 85;
+      STOP_CHARGE_THRESH_BAT0 = 90;
+    };
+  };
 
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
+  boot.loader.grub.configurationLimit = 20;
   networking.useDHCP = false;
   networking.interfaces.enp2s0f1.useDHCP = true;
   networking.interfaces.wlp3s0.useDHCP = true;

@@ -20,7 +20,6 @@
   
   home.packages = with pkgs; [
     discord
-    nuclear
     jetbrains.idea-ultimate
     alloy6
     #texlive.combined.scheme-full
@@ -28,6 +27,7 @@
     spotify
     killall
     comma
+    jq
     mpv
     lxappearance
     i3lock
@@ -41,6 +41,10 @@
     mattermost-desktop
     ark
     zathura
+    gimp
+    peek
+    gst_all_1.gstreamer gst_all_1.gst-plugins-ugly x264
+    jdk8
   ];
 
   services.network-manager-applet.enable = true;

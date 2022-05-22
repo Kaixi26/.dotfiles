@@ -78,6 +78,7 @@
   nixpkgs.config.allowUnfree = true;
   programs.zsh.enable = true;
   programs.light.enable = true;
+  programs.dconf.enable = true; # required for 'peek' to function properly
   services.cpupower-gui.enable = true;
   environment.systemPackages = with pkgs; [
     neovim
