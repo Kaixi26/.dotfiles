@@ -16,6 +16,7 @@
     ./rofi
     ./nvim
     ./dunst
+    ./emacs
   ];
   
   home.packages = with pkgs; [
@@ -45,6 +46,7 @@
     peek
     gst_all_1.gstreamer gst_all_1.gst-plugins-ugly x264
     jdk8
+    godot
   ];
 
   services.network-manager-applet.enable = true;

@@ -27,7 +27,7 @@ in
       dracula-theme.theme-dracula
       vscodevim.vim
       yzhang.markdown-all-in-one
-      bbenoist.nix
+      jnoortheen.nix-ide
       justusadam.language-haskell
       haskell.haskell
       golang.go

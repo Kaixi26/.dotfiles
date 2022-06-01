@@ -7,7 +7,7 @@
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = { nixpkgs, home-manager, ... }:
+  outputs = inputs@{ nixpkgs, home-manager, ... }:
   let
     system = "x86_64-linux";
 
@@ -49,6 +49,7 @@
     nixosConfigurations = {
       jupiter = lib.nixosSystem {
         inherit system;
+        specialArgs = { inherit inputs; };
 	      modules = [
 	        ./configuration.nix
           ./system-modules/hardware/jupiter.nix
@@ -57,6 +58,7 @@
       };
       uranus = lib.nixosSystem {
         inherit system;
+        specialArgs = { inherit inputs; };
 	      modules = [
           #./test/configuration.nix
           #./test/hardware-configuration.nix
