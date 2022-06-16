@@ -5,6 +5,8 @@
     nixpkgs.url = "nixpkgs/nixos-unstable";
     home-manager.url = "github:nix-community/home-manager/master";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
+    dwm.url = "github:Kaixi26/dwm/main";
+    dwm.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs = inputs@{ nixpkgs, home-manager, ... }:
@@ -16,8 +18,13 @@
       config = {
         allowUnfree = true;
       };
+      overlays = [
+        (final: prev: {
+          dwm = inputs.dwm.defaultPackage.${system};
+        })
+      ];
     };
-    
+
     lib = nixpkgs.lib;
 
   in {
@@ -48,7 +55,7 @@
 
     nixosConfigurations = {
       jupiter = lib.nixosSystem {
-        inherit system;
+        inherit system pkgs;
         specialArgs = { inherit inputs; };
 	      modules = [
 	        ./configuration.nix
@@ -57,11 +64,9 @@
 	      ];
       };
       uranus = lib.nixosSystem {
-        inherit system;
+        inherit system pkgs;
         specialArgs = { inherit inputs; };
 	      modules = [
-          #./test/configuration.nix
-          #./test/hardware-configuration.nix
           ./configuration.nix
           ./system-modules/hardware/kaixi.nix
           { networking.hostName = "uranus"; }

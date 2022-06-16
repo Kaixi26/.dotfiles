@@ -36,6 +36,7 @@
       ];
     };
     displayManager.defaultSession = "none+xmonad";
+    windowManager.dwm.enable = true;
     layout = "pt";
     xkbOptions = "ctrl:swapcaps";
     libinput.enable = true;
@@ -128,10 +129,10 @@
     extraOptions = "experimental-features = nix-command flakes";
     package = pkgs.nixFlakes;
   # make nixpkgs point to the same place as the flake to prevent downloading different versions of same package
-    nixPath = [
-      "nixpkgs=${inputs.nixpkgs}"
-    ];
-    registry.nixpkgs.flake = inputs.nixpkgs;
+    #nixPath = [
+    #  "nixpkgs=${inputs.nixpkgs}"
+    #];
+    #registry.nixpkgs.flake = inputs.nixpkgs;
   };
   environment.etc.nixpkgs.source = inputs.nixpkgs;
 

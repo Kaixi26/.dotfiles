@@ -2,10 +2,10 @@
 {
   programs.emacs = {
     enable = true;
-    extraPackages = [
+    extraPackages = epkgs: [
       pkgs.git
       pkgs.ripgrep
       pkgs.fd
-    ]
+    ];
   };
 }

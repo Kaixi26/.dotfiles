@@ -47,9 +47,14 @@
     gst_all_1.gstreamer gst_all_1.gst-plugins-ugly x264
     jdk8
     godot
+    tenacity
   ];
 
+  programs.tmux.enable = true;
+
   services.network-manager-applet.enable = true;
+
+  programs.obs-studio.enable = true;
 
   programs.exa = {
     enable = true;
