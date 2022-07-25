@@ -80,7 +80,7 @@
   programs.zsh.enable = true;
   programs.light.enable = true;
   programs.dconf.enable = true; # required for 'peek' to function properly
-  services.cpupower-gui.enable = true;
+  #services.cpupower-gui.enable = true;
   environment.systemPackages = with pkgs; [
     neovim
     wget git
@@ -99,11 +99,11 @@
     defaultUserShell = pkgs.zsh;
     users.kaixi = {
       isNormalUser = true;
-      extraGroups = [ "wheel" "networkmanager" "video" "sound" "docker" ];
+      extraGroups = [ "wheel" "networkmanager" "video" "sound" "docker" "operator" ];
     };
     users.work = {
       isNormalUser = true;
-      extraGroups = [ "wheel" "networkmanager" "video" "sound" "docker" ];
+      extraGroups = [ "wheel" "networkmanager" "video" "sound" "docker" "operator" ];
     };
   };
 
