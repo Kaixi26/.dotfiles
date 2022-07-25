@@ -26,30 +26,30 @@
     };
 
     lib = nixpkgs.lib;
+    
+    mkHome = (username: {
+      home = {
+        inherit username;
+        homeDirectory = "/home/" + username;
+        stateVersion = "22.05";
+      };
+    });
 
   in {
     homeManagerConfigurations = {
       work = home-manager.lib.homeManagerConfiguration {
         inherit system pkgs;
-	      username = "work";
-	      homeDirectory = "/home/work";
-	      stateVersion = "22.05";
-	      configuration = {
-	        imports = [
-	          ./user-modules
-	        ];
-	      };
+        modules = [
+          ./user-modules
+          (mkHome "work")
+        ];
       };
       kaixi = home-manager.lib.homeManagerConfiguration {
-        inherit system pkgs;
-	      username = "kaixi";
-	      homeDirectory = "/home/kaixi";
-	      stateVersion = "22.05";
-	      configuration = {
-	        imports = [
-	          ./user-modules
-	        ];
-	      };
+        inherit pkgs;
+        modules = [
+          ./user-modules
+          (mkHome "kaixi")
+        ];
       };
     };
 

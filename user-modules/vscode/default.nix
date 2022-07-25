@@ -32,6 +32,7 @@ in
       haskell.haskell
       golang.go
       ms-python.python
+      james-yu.latex-workshop
     ]) ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
       direnv
       nix-env-selector

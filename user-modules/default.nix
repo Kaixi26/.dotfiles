@@ -16,7 +16,7 @@
     ./rofi
     ./nvim
     ./dunst
-    ./emacs
+    ./sxhkd
   ];
   
   home.packages = with pkgs; [
@@ -48,6 +48,7 @@
     jdk8
     godot
     tenacity
+    libsForQt5.kamoso
   ];
 
   programs.tmux.enable = true;
