@@ -27,15 +27,15 @@
     enable = true;
     displayManager.lightdm.enable = true;
     desktopManager.plasma5.enable = true;
-    windowManager.xmonad = {
-      enable = true;
-      extraPackages = haskellPackages: [
-        haskellPackages.xmonad
-        haskellPackages.xmonad-contrib
-        haskellPackages.xmonad-extras
-      ];
-    };
-    displayManager.defaultSession = "none+xmonad";
+    #windowManager.xmonad = {
+    #  enable = true;
+    #  extraPackages = haskellPackages: [
+    #    haskellPackages.xmonad
+    #    haskellPackages.xmonad-contrib
+    #    haskellPackages.xmonad-extras
+    #  ];
+    #};
+    displayManager.defaultSession = "none+dwm";
     windowManager.dwm.enable = true;
     layout = "pt";
     xkbOptions = "ctrl:swapcaps";
@@ -80,7 +80,6 @@
   programs.zsh.enable = true;
   programs.light.enable = true;
   programs.dconf.enable = true; # required for 'peek' to function properly
-  #services.cpupower-gui.enable = true;
   environment.systemPackages = with pkgs; [
     neovim
     wget git

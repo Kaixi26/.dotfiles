@@ -8,6 +8,7 @@
       "super + d" = "rofi -show drun -modi run,drun";
       "{XF86MonBrightnessDown, XF86MonBrightnessUp}" = "light -{U,A} 5";
       "{XF86AudioRaiseVolume, XF86AudioLowerVolume}" = "pulsemixer --max-volume 100 --change-volume {+,-}5";
+      "XF86AudioMute" = "pulsemixer --max-volume 100 --toggle-mute";
       "Print" = "flameshot gui";
       "Scroll_Lock" = "sh -c '([ -f /tmp/kbd_light ] && xset led off && rm /tmp/kbd_light) || (xset led on && touch /tmp/kbd_light)'";
     };

@@ -17,6 +17,7 @@
     ./nvim
     ./dunst
     ./sxhkd
+    ./dwm-status
   ];
   
   home.packages = with pkgs; [
