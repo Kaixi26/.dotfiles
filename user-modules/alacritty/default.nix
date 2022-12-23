@@ -1,12 +1,12 @@
 { ... }:
 let
   window = {
-      padding.x = 2;
-      padding.y = 5;
-      title = "Alacritty";
-      class.instance = "Alacritty";
-      class.general = "Alacritty";
-      opacity = 0.98;
+    padding.x = 2;
+    padding.y = 5;
+    title = "Alacritty";
+    class.instance = "Alacritty";
+    class.general = "Alacritty";
+    opacity = 0.98;
   };
 
   colors-nord = rec {
@@ -25,8 +25,8 @@ let
 
     search.matches.foreground = "CellBackground";
     search.matches.background = "#88c0d0";
-    search.bar.background = "#434c5e";
-    search.bar.foreground = "#d8dee9";
+    colors.footer_bar.background = "#434c5e";
+    colors.footer_bar.foreground = "#d8dee9";
 
     normal.black = "#3b4252";
     normal.red = "#bf616a";
@@ -56,25 +56,60 @@ let
     bright.white = "#eceff4";
   };
 
-  key_bindings = map (x: { mods = "Alt|Shift"; } // x) [
-    { key = "C"; action = "Copy"; }
-    { key = "V"; action = "Paste"; }
-    { key = "R"; action = "ResetFontSize"; }
-    { key = "L"; action = "IncreaseFontSize"; }
-    { key = "H"; action = "DecreaseFontSize"; }
-    { key = "K"; action = "ScrollLineUp"; }
-    { key = "J"; action = "ScrollLineDown"; }
-  ];
+  key_bindings = let
+    binds = [
+      {
+        key = "C";
+        action = "Copy";
+      }
+      {
+        key = "V";
+        action = "Paste";
+      }
+      {
+        key = "R";
+        action = "ResetFontSize";
+      }
+      {
+        key = "L";
+        action = "IncreaseFontSize";
+      }
+      {
+        key = "H";
+        action = "DecreaseFontSize";
+      }
+      {
+        key = "K";
+        action = "ScrollLineUp";
+      }
+      {
+        key = "J";
+        action = "ScrollLineDown";
+      }
+    ];
+  in map (x: { mods = "Alt|Shift"; } // x) binds
+  ++ map (x: { mods = "Command|Shift"; } // x) binds;
 
   default_font = {
-    normal      = { family = "Hack Nerd Font"; style = "Regular"; };
-    bold        = { family = "Hack Nerd Font"; style = "Bold"; };
-    italic      = { family = "Hack Nerd Font"; style = "Italic"; };
-    bold_italic = { family = "Hack Nerd Font"; style = "Bold Italic"; };
-    size = 9;
+    normal = {
+      family = "Hack Nerd Font";
+      style = "Regular";
+    };
+    bold = {
+      family = "Hack Nerd Font";
+      style = "Bold";
+    };
+    italic = {
+      family = "Hack Nerd Font";
+      style = "Italic";
+    };
+    bold_italic = {
+      family = "Hack Nerd Font";
+      style = "Bold Italic";
+    };
+    size = 20;
   };
-in
-{
+in {
 
   programs.alacritty = {
     enable = true;

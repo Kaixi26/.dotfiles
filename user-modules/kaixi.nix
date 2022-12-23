@@ -52,6 +52,10 @@
     libsForQt5.kamoso
   ];
 
+  programs.zsh.sessionVariables = {
+    NIX_HOMEMANAGER_USER = "kaixi";
+  };
+
   programs.tmux.enable = true;
 
   services.network-manager-applet.enable = true;
